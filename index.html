@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    input{
+      display: block;
+    }
+    button{
+      margin: 10px;
+    }
+    .dollar-wrapper{
+      margin-bottom: 20px;
+    }
+    .checkbox-container{
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="wrapper">
+    <input type="text" class="ruble" id="ruble">
+    <div class="">сумма в рублях</div>
+
+      <div class="checkbox-container">
+        <input type="radio" checked name="currency" id="usd">
+        <label for="usd">USD</label>
+        <input type="radio" name="currency" id="euro"/>
+        <label for="euro">EUR</label>
+      </div>
+
+    <button class="convert">конвертировать</button>
+    <button class="refresh"><img src="refresh.png" alt="" width="30px"></button>
+    <input type="text" id="convert-value" class="convert-value">
+    <div class="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
