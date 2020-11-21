@@ -27,9 +27,13 @@ const toConvert = (a, b, c)=>{ // функция конвертации
       convertValue.value = (a).toFixed(3);
       result.textContent = `сумма в ${c}`;
       btnConvert.disabled = true;
+      ruble.disabled = true;
+      convertValue.disabled = true;
     } else if (convertValue.value){
       ruble.value = (b).toFixed(3);
       btnConvert.disabled = true;
+      convertValue.disabled = true;
+      ruble.disabled = true;
     }
 };
 
@@ -52,12 +56,17 @@ async function getRates(){
       convertValue.value = '';
       result.textContent = '';
       btnConvert.disabled = false;
+      ruble.disabled = false;
+      convertValue.disabled = false;
     }
 
     if(usdBox.checked)
-      {if(target === btnConvert){
+      {
+        convertValue.placeholder = 'Перевести в доллары';
+        if(target === btnConvert){
         toConvert((ruble.value*rateUsd), (convertValue.value/rateUsd), usd);
       }} else if (eurBox.checked){
+        convertValue.placeholder = 'Перевести в евро';
         if(target === btnConvert){
           toConvert((ruble.value/RUB), (convertValue.value*RUB), euro);
         }
