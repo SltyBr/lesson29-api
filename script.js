@@ -5,7 +5,8 @@ const ruble = document.querySelector('.ruble'),
       usdBox = document.getElementById('usd'),
       eurBox = document.getElementById('euro'),
       result = document.querySelector('.result'),
-      wrapper = document.querySelector('.wrapper');
+      wrapper = document.querySelector('.wrapper'),
+      todayRate = document.querySelector('.today-rate');
 
 let euro = 'евро',
     usd = 'доллар';
@@ -47,7 +48,11 @@ async function getRates(){
 
   const {RUB, USD} = rates;
 
+  console.log(rates);
+
   rateUsd = USD/RUB;
+
+  todayRate.textContent = `Курс доллара: ${(1/USD * RUB).toFixed(2)} руб.; Курс евро: ${RUB.toFixed(2)} руб.`;
 
   wrapper.addEventListener('click', (event)=>{
     let target = event.target;
